@@ -39,12 +39,17 @@ Sheet {
 		
 		        }
 		        TextArea {
-		            text: qsTr("#1 Connecting to the GoPro Camera:\nTo connect to the GoPro, please enter the settings page, and enter the Wifi name (also known as SSID) of your camera, and also your password, that you defined when installing your camera with the vendor software. Then check connection, you should see wifi OK (means the SSID is OK), and also connection OK (means your password is OK). Then you are ready to use this App.")
+		            text: qsTr("#1 Connecting to the GoPro Camera:\nTo connect to the GoPro, please enter the <b>Settings page</b> (swipe down, then select \"Settings\"), and enter the <b>GoPro Wifi NAME</b> (also known as SSID) of your camera, and also your <b>GoPro PASSWORD</b>, that you defined when installing your camera with the vendor software.\n\n Then click <b>Check again</b>, you should read Wifi Status = \"Connected\" (means the SSID is OK), and also GoPro Connection = \"Connected\" (means your password is OK). \n\nThen you are ready to use this App to control your camera.")
 	                backgroundVisible: false
 		            textFormat: TextFormat.Html
 		            editable: false
 		
 		        }
+		        ImageView {
+                    imageSource: "asset:///images/help.png"
+                    scaleX: 0.8
+                    scaleY: 0.8
+                }
 		        TextArea {
 		            text: qsTr("#2 Sometimes, the Wifi connection can be unstable, or maybe your phone may try to catch other networks while in range. If you have issue, please check that your BlackBerry 10 phone is properly connected to the GoPro wifi network.")
 		            backgroundVisible: false
