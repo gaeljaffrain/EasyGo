@@ -419,7 +419,7 @@ bool EasyGo::isWifiConnected()
 		return 1;
 	} else {
 		emit wifiConnectedChanged(false);
-		toast->setBody("Not Connected ! Please check GoPro name and connection !");
+		toast->setBody("Not Connected to the saved SSID !\nPlease check GoPro name in the settings page !\n(Swipe Down, and click Settings)");
 		toast->show();
 		return 0;
 	}
@@ -684,6 +684,8 @@ void EasyGo::updateGoProSettings()
 int EasyGo::enterState(GoProState state, GoProState &nextState)
 {
 	 int err = EOK;
+	 SystemToast *toast = new SystemToast(this);
+	 toast->setPosition(SystemUiPosition::MiddleCenter);
 
 	//Normal case is that we enter the requested state and keep it
 	mGoProState = state;
@@ -695,6 +697,10 @@ int EasyGo::enterState(GoProState state, GoProState &nextState)
 		emit goProConnectedChanged(mGoProConnected = false);
 		emit goProPoweredChanged(mGoProPowered = false);
 		emit goProBusyChanged(mGoProBusy = false);
+
+		toast->setBody("Not Connected !\nPlease check GoPro name and password in the Settings page !\n(Swipe Down, and click Settings)");
+		toast->show();
+
 		break;
 
 	case StatePoweringOn:
